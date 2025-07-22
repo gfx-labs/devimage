@@ -79,16 +79,19 @@ RUN useradd coder \
     --user-group && \
     echo "coder ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers.d/nopasswd
 
+
+ENV MISE_INSTALL_PATH="/usr/local/bin/mise"
+RUN curl https://mise.run | sh
+
 USER coder
 
 # Install mise
 ENV MISE_DATA_DIR="/home/coder/.local/share/mise"
 ENV MISE_CONFIG_DIR="/home/coder/.config/mise"
 ENV MISE_CACHE_DIR="/home/coder/.cache/mise"
-ENV MISE_INSTALL_PATH="/home/coder/.local/bin/mise"
+ENV MISE_INSTALL_PATH="/usr/local/bin/mise"
 ENV PATH="/home/coder/.local/bin:/home/coder/.local/share/mise/shims:$PATH"
 
-RUN curl https://mise.run | sh
 
 # Set working directory to coder's home
 WORKDIR /home/coder
