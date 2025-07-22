@@ -1,0 +1,24 @@
+# Nix build results
+result
+result-*
+
+# Docker build cache
+.dockerignore
+*.tar
+*.tar.gz
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
