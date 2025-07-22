@@ -90,5 +90,8 @@ ENV PATH="/home/coder/.local/bin:/home/coder/.local/share/mise/shims:$PATH"
 
 RUN curl https://mise.run | sh
 
+# Set working directory to coder's home
+WORKDIR /home/coder
+
 # Set default command to bash
 CMD ["/bin/bash"]
